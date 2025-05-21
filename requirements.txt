@@ -1,0 +1,12 @@
+fastapi                 # Web framework
+uvicorn                 # ASGI server to run the FastAPI app
+pydantic                # Data validation (already included with FastAPI)
+sentence-transformers   # SBERT model for semantic similarity
+scikit-learn            # For cosine_similarity
+numpy                   # For array/vector math
+python-dotenv           # For reading .env files
+mysql-connector-python  # For connecting to MySQL database
+googletrans==4.0.0-rc1        # For detecting multiple languages
+blobfile
+sentencepiece # pip install sentencepiece tokenizers
+tokenizers # pip install sentencepiece tokenizers
