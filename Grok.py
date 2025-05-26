@@ -8,6 +8,8 @@ from tenacity import retry, stop_after_attempt, wait_exponential
 #first commit
 load_dotenv()
 
+load_dotenv()
+
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
