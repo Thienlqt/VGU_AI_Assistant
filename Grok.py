@@ -3,8 +3,10 @@ import json
 import logging
 import requests
 from typing import Optional
-from googletrans import Translator
+from dotenv import load_dotenv
 from tenacity import retry, stop_after_attempt, wait_exponential
+#first commit
+load_dotenv()
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -17,30 +19,19 @@ class GrokHelper:
             raise ValueError("GROK_KEY environment variable is not set")
 
         self.base_url = "https://api.x.ai/v1/chat/completions"
-        self.translator = Translator()
 
         try:
-            with open("qa_data_fewshot.json", encoding="utf-8") as f:
+            with open("Data/qa_data_fewshot_updated.json", encoding="utf-8") as f:
                 self.few_shot_examples = json.load(f)
         except FileNotFoundError:
-            raise FileNotFoundError("qa_data_fewshot.json not found")
+            raise FileNotFoundError("qa_data_fewshot_updated.json not found")
 
-    def detect_language(self, text: str) -> str:
-        """Detect language of user input."""
-        try:
-            lang = self.translator.detect(text).lang
-            return "vi" if lang == "vi" else "en"
-        except Exception as e:
-            logger.warning(f"Language detection failed, defaulting to 'vi': {e}")
-            return "vi"
 
     @retry(stop=stop_after_attempt(3), wait=wait_exponential(multiplier=1, min=1, max=10))
-    def call_model(self, user_input: str, lang: Optional[str] = None) -> Optional[str]:
-        if not lang:
-            lang = self.detect_language(user_input)
+    def call_model(self, user_input: str) -> Optional[str]:
 
-        system_prompt = self.few_shot_examples.get("system_prompt", {}).get(lang, "")
-        examples = self.few_shot_examples.get("examples", {}).get(lang, [])
+        system_prompt = self.few_shot_examples.get("system_prompt", {})
+        examples = self.few_shot_examples.get("examples", {})
 
         messages = [{"role": "system", "content": system_prompt}] + examples
         messages.append({"role": "user", "content": user_input})
@@ -62,8 +53,14 @@ class GrokHelper:
                     "temperature": 0.7
                 }
             )
+            logger.info("Sending request to Grok API...")
+            logger.debug("Request payload: %s", json.dumps(json, ensure_ascii=False, default=str))
+
+            logger.info(f"Grok API response status: {response.status_code}")
             response.raise_for_status()
             data = response.json()
+
+            logger.debug(f"Grok response: {json.dumps(data, ensure_ascii=False)[:500]}")
 
             usage = data.get("usage", {})
             logger.info(f"Grok usage: {usage.get('total_tokens', 0)} tokens "
@@ -80,7 +77,7 @@ class GrokHelper:
             self.handle_http_error(e, response)
             return None
         except Exception as e:
-            logger.error(f"OpenRouter API error: {e}")
+            logger.error(f"xAI API error: {e}")
             return None
 
     def handle_http_error(self, error, response):
