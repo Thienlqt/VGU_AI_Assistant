@@ -21,10 +21,10 @@ class GrokHelper:
         self.base_url = "https://api.x.ai/v1/chat/completions"
 
         try:
-            with open("Data/qa_data_fewshot_updated.json", encoding="utf-8") as f:
+            with open("few_shot_data.json", encoding="utf-8") as f:
                 self.few_shot_examples = json.load(f)
         except FileNotFoundError:
-            raise FileNotFoundError("qa_data_fewshot_updated.json not found")
+            raise FileNotFoundError("few_shot_data.json not found")
 
 
     @retry(stop=stop_after_attempt(3), wait=wait_exponential(multiplier=1, min=1, max=10))
