@@ -12,37 +12,27 @@ load_dotenv()
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-class GeminiHelper:
+class GeminiPromptOnlyHelper:
     def __init__(self):
         self.api_key = os.getenv("GEMINI_KEY")
         if not self.api_key:
             raise ValueError("GEMINI_KEY environment variable is not set")
 
-        self.base_url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key={self.api_key}"
+        self.base_url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={self.api_key}"
 
         try:
-            with open("Data/few_shot_data.json", encoding="utf-8") as f:
-                self.few_shot_examples = json.load(f)
+            with open("Data/system_prompt.json", encoding="utf-8") as f:
+                self.system_prompt_only = json.load(f)
         except FileNotFoundError:
-            raise FileNotFoundError(".json not found")
+            raise FileNotFoundError("system_prompt.json not found")
 
     @retry(stop=stop_after_attempt(3), wait=wait_exponential(multiplier=1, min=1, max=10))
     def call_model(self, user_input: str) -> Optional[str]:
-        system_prompt = self.few_shot_examples.get("system_prompt", "")
-        examples = self.few_shot_examples.get("examples", [])
-
-        # Gemini expects "parts" for each message inside "contents"
+        system_prompt = self.system_prompt_only.get("system_prompt", "")
+        
         contents = []
 
-        if system_prompt:
-            contents.append({"role": "user", "parts": [{"text": system_prompt}]})
-
-        for example in examples:
-            if example["role"] == "user":
-                contents.append({"role": "user", "parts": [{"text": example["content"]}]})
-            elif example["role"] == "assistant":
-                contents.append({"role": "model", "parts": [{"text": example["content"]}]})
-
+        contents.append({"role": "user", "parts": [{"text": system_prompt}]})
         contents.append({"role": "user", "parts": [{"text": user_input}]})
 
         try:

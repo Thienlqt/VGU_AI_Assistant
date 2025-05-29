@@ -1,0 +1,158 @@
+{
+  "system_prompt": "",
+
+  "examples": [
+      {
+        "role": "user",
+        "content": "Các ngành đào tạo trình độ đại học tại VGU là gì?"
+      },
+      {
+        "role": "assistant",
+        "content": "Trường Đại học Việt Đức (VGU) đào tạo các ngành như: Khoa học máy tính, Kỹ thuật điện và máy tính, Cơ khí, Kỹ thuật và quản lý xây dựng, Kiến trúc, Quản trị kinh doanh, Tài chính và Kế toán, Kỹ thuật giao thông thông minh, Kỹ thuật quy trình sản xuất bền vững, Cơ điện tử, và Kinh tế học."
+      },
+      {
+        "role": "user",
+        "content": "Năm học tại VGU bắt đầu khi nào?"
+      },
+      {
+        "role": "assistant",
+        "content": "Năm học tại VGU bắt đầu từ học kỳ mùa Đông hàng năm."
+      },
+      {
+        "role": "user",
+        "content": "Nguyên tắc tuyển sinh của VGU là gì?"
+      },
+      {
+        "role": "assistant",
+        "content": "VGU tuyển sinh công bằng, minh bạch, không phân biệt đối xử về giới tính, dân tộc, tôn giáo... Quy trình xét tuyển rõ ràng và dựa vào thành tích học tập."
+      },
+      {
+        "role": "user",
+        "content": "Ai được quyền đăng ký tuyển sinh tại VGU?"
+      },
+      {
+        "role": "assistant",
+        "content": "Thí sinh đã tốt nghiệp THPT hoặc đang học lớp 12 tại các trường THPT ở Việt Nam hoặc quốc tế và đáp ứng yêu cầu của VGU và Bộ Giáo dục và Đào tạo."
+      },
+      {
+        "role": "user",
+        "content": "VGU có những phương thức tuyển sinh nào?"
+      },
+      {
+        "role": "assistant",
+        "content": "Có 5 phương thức: 1) TestAS, 2) Học bạ THPT, 3) Tuyển thẳng, 4) Chứng chỉ THPT quốc tế, 5) Kết quả tốt nghiệp THPT."
+      },
+      {
+        "role": "user",
+        "content": "Tôi có thể nộp hồ sơ theo nhiều phương thức không?"
+      },
+      {
+        "role": "assistant",
+        "content": "Có. Thí sinh được nộp theo nhiều phương thức nhưng kết quả được xét độc lập và chỉ nhập học theo một phương thức."
+      },
+      {
+        "role": "user",
+        "content": "Yêu cầu về tiếng Anh đầu vào là gì?"
+      },
+      {
+        "role": "assistant",
+        "content": "Thí sinh cần có IELTS từ 5.0 trở lên, hoặc vượt qua bài kiểm tra tiếng Anh của VGU, hoặc có điểm trung bình môn tiếng Anh từ 7,5 trở lên (áp dụng cho Phương thức 2 và 5)."
+      },
+      {
+        "role": "user",
+        "content": "Tôi có được miễn tiếng Anh đầu vào không?"
+      },
+      {
+        "role": "assistant",
+        "content": "Có, nếu bạn đến từ quốc gia nói tiếng Anh hoặc học chương trình THPT quốc tế bằng tiếng Anh (cần có xác nhận của trường)."
+      },
+      {
+        "role": "user",
+        "content": "TestAS là gì và dùng để làm gì?"
+      },
+      {
+        "role": "assistant",
+        "content": "TestAS là bài kiểm tra đầu vào để đánh giá năng lực học đại học. VGU sử dụng bài thi này trong Phương thức 1 và 4 để xét tuyển sinh viên."
+      },
+      {
+        "role": "user",
+        "content": "Điều kiện để xét tuyển học bạ là gì?"
+      },
+      {
+        "role": "assistant",
+        "content": "Tổng điểm trung bình các môn theo tổ hợp quy định phải từ 7.0 trở lên và đáp ứng điều kiện tiếng Anh đầu vào."
+      },
+      {
+        "role": "user",
+        "content": "Đối tượng nào được tuyển thẳng?"
+      },
+      {
+        "role": "assistant",
+        "content": "Học sinh đạt giải quốc gia, quốc tế, học sinh giỏi 3 năm, hoặc có thành tích học tập xuất sắc và điểm tiếng Anh cao."
+      },
+      {
+        "role": "user",
+        "content": "VGU có công nhận các bằng THPT quốc tế không?"
+      },
+      {
+        "role": "assistant",
+        "content": "Có. Các bằng như IBD, A-Level, GED, SAT, ACT… được VGU chấp nhận nếu đạt điểm theo yêu cầu."
+      },
+      {
+        "role": "user",
+        "content": "Điều kiện để trúng tuyển theo điểm thi THPT là gì?"
+      },
+      {
+        "role": "assistant",
+        "content": "Thí sinh cần có tổng điểm 3 môn thuộc tổ hợp xét tuyển đạt mức điểm trúng tuyển do Hội đồng tuyển sinh VGU quyết định."
+      },
+      {
+        "role": "user",
+        "content": "Tôi có thể chuyển từ trường đại học khác sang VGU không?"
+      },
+      {
+        "role": "assistant",
+        "content": "Có, nếu ngành tương đương, không bị kỷ luật tại trường cũ và điểm thi đầu vào tương đương điểm chuẩn năm đó của VGU."
+      },
+      {
+        "role": "user",
+        "content": "Tôi có thể bảo lưu kết quả trúng tuyển không?"
+      },
+      {
+        "role": "assistant",
+        "content": "Có. Bạn được bảo lưu nếu tham gia nghĩa vụ quân sự, đại diện quốc gia thi đấu, hoặc bị bệnh nặng. Cần nộp hồ sơ xin bảo lưu đúng hạn."
+      },
+      {
+        "role": "user",
+        "content": "Làm thế nào để nộp hồ sơ tuyển sinh vào VGU?"
+      },
+      {
+        "role": "assistant",
+        "content": "Thí sinh nộp hồ sơ qua hệ thống trực tuyến của VGU tại địa chỉ: https://apply.vgu.edu.vn kèm các giấy tờ theo quy định của từng phương thức tuyển sinh."
+      },
+      {
+        "role": "user",
+        "content": "VGU có cấp học bổng cho sinh viên không?"
+      },
+      {
+        "role": "assistant",
+        "content": "Có. VGU xét cấp học bổng tài năng dựa trên kết quả tuyển sinh của từng phương thức và theo chỉ tiêu từng năm."
+      },
+      {
+        "role": "user",
+        "content": "Lệ phí thi TestAS là bao nhiêu?"
+      },
+      {
+        "role": "assistant",
+        "content": "Lệ phí bài thi TestAS là 2.000.000 đồng và chỉ được hoàn trả nếu thí sinh nộp các chứng chỉ hợp lệ thay thế (như SAT, TestAS…) ít nhất 2 tuần trước ngày thi."
+      },
+      {
+        "role": "user",
+        "content": "Chi phí và cách di chuyển đến VGU?"
+      },
+      {
+        "role": "assistant",
+        "content": "VGU cung cấp dịch vụ xe bus đi từ Tp.HCM và ghé rải rác ở các trạm trên đường đến VGU từ Tp.HCM. Vé lẻ là 150.000/ lượt. Ngoài ra còn có dịch vụ đăng kí vé tuần và vé ngày, để biết thêm chi tiết, bạn hãy vào https://vgu.edu.vn/vi/bus để khảo thêm nhé."
+      }
+   ]
+}
