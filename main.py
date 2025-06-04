@@ -12,7 +12,7 @@ from pydantic import BaseModel
 
 #import database
 #from database import get_db, create_qa_table_if_not_exists
-from Grok import GrokHelper
+from Models.Gemini_systemPromptOnly import GeminiPromptOnlyHelper
 
 # Logging setup
 logging.basicConfig(level=logging.INFO)
@@ -31,7 +31,7 @@ app.add_middleware(
 )
 
 # translator = Translator()
-Grok = GrokHelper()
+Grok = GeminiPromptOnlyHelper()
 
 # Load intent templates
 # try:
