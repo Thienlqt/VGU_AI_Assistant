@@ -18,10 +18,10 @@ class GeminiHelper:
         if not self.api_key:
             raise ValueError("GEMINI_KEY environment variable is not set")
 
-        self.base_url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key={self.api_key}"
+        self.base_url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={self.api_key}"
 
         try:
-            with open("Data/few_shot_data.json", encoding="utf-8") as f:
+            with open("Data/new_data_fewshot.json", encoding="utf-8") as f:
                 self.few_shot_examples = json.load(f)
         except FileNotFoundError:
             raise FileNotFoundError(".json not found")
